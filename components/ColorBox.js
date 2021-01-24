@@ -5,10 +5,16 @@ const ColorBox = ({ text, hexCode }) => {
   const color = {
     backgroundColor: hexCode,
   };
+  const textColor = {
+    color:
+      parseInt(hexCode.replace('#', ''), 16) > 0xffffff / 1.1
+        ? 'black'
+        : 'white',
+  };
 
   return (
     <View style={[styles.box, color]}>
-      <Text style={{ color: 'white' }}>
+      <Text style={textColor}>
         {text} : {hexCode}
       </Text>
     </View>
